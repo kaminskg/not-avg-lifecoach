@@ -45,6 +45,7 @@ import VueChatScroll from "vue-chat-scroll";
 import Bot from "@/components/Bot.vue";
 import User from "../components/User.vue";
 import translate from "translate";
+import wikipedia from "wikipedia"
 Vue.use(VueChatScroll);
 Vue.use(FormSelectPlugin)
 
@@ -102,9 +103,6 @@ export default {
       this.$store.commit("setConversation", this.conversation);
       this.$router.push("chat-analysis");
     },
-  setLanguage(e){
-
-  },
     initialMessage() {
       this.conversation.push({
         chatStyle: "bot",
@@ -128,6 +126,29 @@ export default {
           text: this.userMessage
         });
 
+         if(this.userMessage.includes("wiki")){
+          var ret = this.userMessage.replace('wiki ','');
+          console.log(ret);
+          this.search(ret);
+        }else{
+          postMessage(this.userMessage, this.nlpRestToken)
+            .then(() => {
+              this.typingEnabled = false;
+              setTimeout(() => {
+                this.typingEnabled = true;
+                this.$nextTick(() => {
+                  this.$refs["textinput"].focus();
+                });
+                this.getReply();
+              }, Math.random() * 1500 + 500);
+            })
+            .catch(error => {
+              console.log(error);
+            })
+            .finally(() => {
+              this.userMessage = "";
+            });
+        }
         postMessage(this.userMessage, this.nlpRestToken)
           .then(() => {
             this.typingEnabled = false;
@@ -164,8 +185,17 @@ export default {
     },
     updateMessage(currentMessage) {
       this.userMessage = currentMessage;
+    },
+    search(message) {
+      wikipedia.page(message).then(data => { data.summary().then(
+        data => 
+        this.conversation.push({
+              chatStyle: "bot",
+              text: data.extract
+              })
+        )}).then(this.userMessage = "");
+      },
     }
-  }
 };
 </script>
 
