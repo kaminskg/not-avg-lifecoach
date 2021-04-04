@@ -40,6 +40,7 @@ import { makeHandshake, postMessage, getBotReply } from "@/services/axios.js";
 import VueChatScroll from "vue-chat-scroll";
 import Bot from "@/components/Bot.vue";
 import User from "../components/User.vue";
+import wikipedia from "wikipedia"
 Vue.use(VueChatScroll);
 
 export default {
@@ -102,23 +103,29 @@ export default {
           text: this.userMessage
         });
 
-        postMessage(this.userMessage, this.nlpRestToken)
-          .then(() => {
-            this.typingEnabled = false;
-            setTimeout(() => {
-              this.typingEnabled = true;
-              this.$nextTick(() => {
-                this.$refs["textinput"].focus();
-              });
-              this.getReply();
-            }, Math.random() * 1500 + 500);
-          })
-          .catch(error => {
-            console.log(error);
-          })
-          .finally(() => {
-            this.userMessage = "";
-          });
+         if(this.userMessage.includes("wiki")){
+          var ret = this.userMessage.replace('wiki ','');
+          console.log(ret);
+          this.search(ret);
+        }else{
+          postMessage(this.userMessage, this.nlpRestToken)
+            .then(() => {
+              this.typingEnabled = false;
+              setTimeout(() => {
+                this.typingEnabled = true;
+                this.$nextTick(() => {
+                  this.$refs["textinput"].focus();
+                });
+                this.getReply();
+              }, Math.random() * 1500 + 500);
+            })
+            .catch(error => {
+              console.log(error);
+            })
+            .finally(() => {
+              this.userMessage = "";
+            });
+        }
       }
     },
     getReply() {
@@ -139,7 +146,16 @@ export default {
     },
     updateMessage(currentMessage) {
       this.userMessage = currentMessage;
-    }
+    },
+    search(message) {
+    wikipedia.page(message).then(data => { data.summary().then(
+      data => 
+       this.conversation.push({
+            chatStyle: "bot",
+            text: data.extract
+            })
+      )}).then(this.userMessage = "");
+    },
   }
 };
 </script>
