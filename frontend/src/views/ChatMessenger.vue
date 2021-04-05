@@ -140,7 +140,13 @@ export default {
               );
             })
             // clears chat message when you done
-            .then((this.userMessage = ""));
+            .then((this.userMessage = ""))
+            .catch((error) => {
+              this.conversation.push({
+                chatStyle: "bot",
+                text: "Sorry dude, can't find that article on wikipedia :/",
+              });
+            });
         } else {
           postMessage(this.userMessage, this.nlpRestToken)
             .then(() => {
