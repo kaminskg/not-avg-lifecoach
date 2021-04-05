@@ -147,7 +147,16 @@ export default {
                 text: "Sorry dude, can't find that article on wikipedia :/",
               });
             });
-        } else {
+        } else if (this.userMessage.substring(0, 16) == "translate this: ") {
+          this.userMessage.replace("translate this:  ", "TESTING")
+          this.userMessage = this.userMessage.substring(15)
+          translate(this.userMessage, this.selected).then((data) => {
+                  this.conversation.push({
+                    chatStyle: "bot",
+                    text: data,
+                  }); 
+                }).then((this.userMessage = ""))
+        }else {
           postMessage(this.userMessage, this.nlpRestToken)
             .then(() => {
               this.typingEnabled = false;
