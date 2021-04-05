@@ -106,7 +106,8 @@ export default {
     initialMessage() {
       this.conversation.push({
         chatStyle: "bot",
-        text: "Hello, I am your Motivational Lifecoach, ask me anything!",
+        text:
+          'Hello, I am your Motivational Lifecoach, ask me anything! I can speak in different langauges!! If you want me to wiki something just type the word "wiki <topic>"',
       });
     },
     nlpHandshake() {
@@ -125,9 +126,21 @@ export default {
           chatStyle: "user",
           text: this.userMessage,
         });
-
         if (this.userMessage.includes("wiki")) {
-          this.wikiSearch(this.userMessage.replace("wiki ", ""));
+          wikipedia
+            .page(this.userMessage.replace("wiki ", ""))
+            .then((data) => {
+              data.summary().then((data) =>
+                translate(data.extract, this.selected).then((data) => {
+                  this.conversation.push({
+                    chatStyle: "bot",
+                    text: data,
+                  });
+                })
+              );
+            })
+            // clears chat message when done
+            .then((this.userMessage = ""));
         } else {
           postMessage(this.userMessage, this.nlpRestToken)
             .then(() => {
@@ -166,21 +179,6 @@ export default {
     },
     updateMessage(currentMessage) {
       this.userMessage = currentMessage;
-    },
-    wikiSearch(message) {
-      wikipedia
-        .page(message)
-        .then((data) => {
-          data.summary().then((data) =>
-            translate(data.extract, this.selected).then((data) => {
-              this.conversation.push({
-                chatStyle: "bot",
-                text: data,
-              });
-            })
-          );
-        })
-        .then((this.userMessage = ""));
     },
   },
 };
