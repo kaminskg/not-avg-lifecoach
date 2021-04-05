@@ -2,9 +2,9 @@
   <div id="chat-bot">
     <div id="chat-header">
       <h5 id="chat-header-text">Not Your Average Life Coach</h5>
-  <div>
-     <b-form-select v-model="selected" :options="options"></b-form-select>
-  </div>
+      <div>
+        <b-form-select v-model="selected" :options="options"></b-form-select>
+      </div>
       <button
         :disabled="userMessages.length === 0 || typingEnabled === false"
         @click="goToChatAnalysisRoute"
@@ -40,21 +40,21 @@
 <script>
 import Vue from "vue";
 import { makeHandshake, postMessage, getBotReply } from "@/services/axios.js";
-import { FormSelectPlugin } from 'bootstrap-vue'
+import { FormSelectPlugin } from "bootstrap-vue";
 import VueChatScroll from "vue-chat-scroll";
 import Bot from "@/components/Bot.vue";
 import User from "../components/User.vue";
 import translate from "translate";
-import wikipedia from "wikipedia"
+import wikipedia from "wikipedia";
 Vue.use(VueChatScroll);
-Vue.use(FormSelectPlugin)
+Vue.use(FormSelectPlugin);
 
 translate.engine = "libre";
 
 export default {
   components: {
     Bot,
-    User
+    User,
   },
   created() {
     this.nlpHandshake();
@@ -76,26 +76,26 @@ export default {
       typingEnabled: true,
       error: "",
       selected: "en",
-        options: [
-          { value: 'ar', text: 'Arabic' },
-          { value: 'zh', text: 'Chinese' },
-          { value: "en", text: 'English' },
-          { value: 'fr', text: 'French' },
-          { value: 'de', text: 'German' },
-          { value: 'hi', text: 'Hindi' },
-          { value: 'it', text: 'Italian' },
-          { value: 'ja', text: 'Japanese' },
-          { value: 'ko', text: 'Korean' },
-          { value: 'pt', text: 'Portuguese' },
-          { value: 'ru', text: 'Russain' },
-          { value: 'es', text: 'Spanish' }
-        ]
+      options: [
+        { value: "ar", text: "Arabic" },
+        { value: "zh", text: "Chinese" },
+        { value: "en", text: "English" },
+        { value: "fr", text: "French" },
+        { value: "de", text: "German" },
+        { value: "hi", text: "Hindi" },
+        { value: "it", text: "Italian" },
+        { value: "ja", text: "Japanese" },
+        { value: "ko", text: "Korean" },
+        { value: "pt", text: "Portuguese" },
+        { value: "ru", text: "Russain" },
+        { value: "es", text: "Spanish" },
+      ],
     };
   },
 
   name: "ChatBot",
   props: {
-    msg: String
+    msg: String,
   },
   methods: {
     goToChatAnalysisRoute() {
@@ -106,15 +106,15 @@ export default {
     initialMessage() {
       this.conversation.push({
         chatStyle: "bot",
-        text: "Hello, I am your Motivational Lifecoach, ask me anything!"
+        text: "Hello, I am your Motivational Lifecoach, ask me anything!",
       });
     },
     nlpHandshake() {
       makeHandshake()
-        .then(dataId => {
+        .then((dataId) => {
           this.nlpRestToken = dataId;
         })
-        .catch(error => {
+        .catch((error) => {
           this.error = "handshake api call is unsuccessful";
         });
     },
@@ -123,14 +123,12 @@ export default {
         this.userMessages.push(this.userMessage);
         this.conversation.push({
           chatStyle: "user",
-          text: this.userMessage
+          text: this.userMessage,
         });
 
-         if(this.userMessage.includes("wiki")){
-          var ret = this.userMessage.replace('wiki ','');
-          console.log(ret);
-          this.search(ret);
-        }else{
+        if (this.userMessage.includes("wiki")) {
+          this.wikiSearch(this.userMessage.replace("wiki ", ""));
+        } else {
           postMessage(this.userMessage, this.nlpRestToken)
             .then(() => {
               this.typingEnabled = false;
@@ -142,60 +140,49 @@ export default {
                 this.getReply();
               }, Math.random() * 1500 + 500);
             })
-            .catch(error => {
+            .catch((error) => {
               console.log(error);
             })
             .finally(() => {
               this.userMessage = "";
             });
         }
-        postMessage(this.userMessage, this.nlpRestToken)
-          .then(() => {
-            this.typingEnabled = false;
-            setTimeout(() => {
-              this.typingEnabled = true;
-              this.$nextTick(() => {
-                this.$refs["textinput"].focus();
-              });
-              this.getReply();
-            }, Math.random() * 1500 + 500);
-          })
-          .catch(error => {
-            console.log(error);
-          })
-          .finally(() => {
-            this.userMessage = "";
-          });
       }
     },
     getReply() {
       getBotReply(this.nlpRestToken)
-        .then(response => {
+        .then((response) => {
           this.reply = response.data.activities[(this.botMessageCount += 2)];
           this.allConvoData = response.data;
           this.botMessages.push(this.reply.text);
-          translate(this.reply.text, this.selected).then(data =>{
+          translate(this.reply.text, this.selected).then((data) => {
             this.conversation.push({
-            chatStyle: "bot",
-            text: data
+              chatStyle: "bot",
+              text: data,
+            });
           });
-         })
         })
         .finally(() => {});
     },
     updateMessage(currentMessage) {
       this.userMessage = currentMessage;
     },
-    search(message) {
-      wikipedia.page(message).then(data => { data.summary().then(
-        data => 
-        this.conversation.push({
-              chatStyle: "bot",
-              text: data.extract
-              })
-        )}).then(this.userMessage = "");
-      },
-    }
+    wikiSearch(message) {
+      wikipedia
+        .page(message)
+        .then((data) => {
+          data.summary().then((data) =>
+            translate(data.extract, this.selected).then((data) => {
+              this.conversation.push({
+                chatStyle: "bot",
+                text: data,
+              });
+            })
+          );
+        })
+        .then((this.userMessage = ""));
+    },
+  },
 };
 </script>
 
