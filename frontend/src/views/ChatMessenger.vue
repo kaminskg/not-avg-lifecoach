@@ -126,7 +126,7 @@ export default {
           chatStyle: "user",
           text: this.userMessage,
         });
-        if (this.userMessage.includes("wiki")) {
+        if (this.userMessage.substring(0, 4) == "wiki") {
           wikipedia
             .page(this.userMessage.replace("wiki ", ""))
             .then((data) => {
@@ -139,7 +139,7 @@ export default {
                 })
               );
             })
-            // clears chat message when done
+            // clears chat message when you done
             .then((this.userMessage = ""));
         } else {
           postMessage(this.userMessage, this.nlpRestToken)
