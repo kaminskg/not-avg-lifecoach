@@ -352,7 +352,7 @@ header .filler {
   padding: 0px;
   background-color: $light;
   border: $accent solid 4px;
-  width: 450px;
+  width: 500px;
   height: 80vh;
   display: flex;
   flex-direction: column;
