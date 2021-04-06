@@ -263,6 +263,10 @@ The chatbot can now speak in multiple languages! There is a new dropdown menu at
 To use this new feature, follow these steps: 
   1. Choose the language you want the bot to translate to you from the new drop down menu
   2. Type `translate this: ` followed by what sentence you want translated `ex. translate this: Sushi is my favourite food`
-  3. Hit `enter` or the `send` icon and see the output!
+  3. Hit `enter` or the `send` icon and see the output! <br>
+
 Below is a sample output.
+<div align="center">
+  <img height="500" src="./Documentation/individual_feature_imgs/translation_exmaple.png">
+</div>
 
