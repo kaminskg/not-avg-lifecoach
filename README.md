@@ -283,10 +283,10 @@ To use this new feature, follow these steps:
 
 Below is a sample output with an English summary.
 <div align="center">
-  <img height="500" src="./Documentation/individual_feature_imgs/translation_exmaple.png">
+  <img height="500" src="./Documentation/individual_feature_imgs/wiki_sushi_english.png">
 </div>
 
 And here is a sample output with a Japanese summary.
 <div align="center">
-  <img height="500" src="./Documentation/individual_feature_imgs/translation_exmaple.png">
+  <img height="500" src="./Documentation/individual_feature_imgs/wiki_sushi_japanese.png">
 </div>
