@@ -148,7 +148,6 @@ export default {
               });
             });
         } else if (this.userMessage.substring(0, 16) == "translate this: ") {
-          this.userMessage.replace("translate this:  ", "TESTING")
           this.userMessage = this.userMessage.substring(15)
           translate(this.userMessage, this.selected).then((data) => {
                   this.conversation.push({
