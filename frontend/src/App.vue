@@ -10,7 +10,7 @@ html,
 body {
   margin: 0;
   padding: 0;
-  background-color: $primaryLight !important;
+  background-color: #5a575a !important;
 }
 
 #app {
