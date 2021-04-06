@@ -10,7 +10,7 @@ html,
 body {
   margin: 0;
   padding: 0;
-  background-color: #5a575a !important;
+  background-color: #2c2f33  !important;
 }
 
 #app {

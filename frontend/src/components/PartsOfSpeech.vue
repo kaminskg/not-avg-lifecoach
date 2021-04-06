@@ -119,4 +119,8 @@ export default {
 .tr:hover {
   background-color: rgb(234, 225, 238);
 }
+
+h3 {
+  color: white
+} 
 </style>

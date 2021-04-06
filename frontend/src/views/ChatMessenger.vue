@@ -369,7 +369,7 @@ header .filler {
   padding: 0px;
   background-color: $light;
   border: #0389c5 solid 4px;
-  width: 520px;
+  width: 530px;
   height: 80vh;
   display: flex;
   flex-direction: column;
