@@ -1,6 +1,7 @@
 # NOT YOUR AVERAGE LIFE COACH
 
 ### Navigation
+  - [Individual Component](#individual-component)
   - [Getting Started](#getting-started)
   - [Project Description](#project-description)
   - [Project Limitations](#project-limitations)
@@ -249,4 +250,19 @@ The sentiment analysis is the first page that pops up when you click the analyze
 - Worked on named entity recognition(with matt)
 - Created Level 0/ Level 1 DFDs
 - Created Videos
+
+## Individual Component
+**Note:** Before you begin, please refer to [this section](#getting-started) to properly configure the chatbot to your local machine.
+The following chatbot has two new features implemented. These features are the Google translate API and the Wikipedia API.
+
+### 1. Google Translate 
+The API used can be found from the following website: https://www.npmjs.com/package/translate <br>
+
+The chatbot can now speak in multiple languages! There is a new dropdown menu at the top right near the "analyze" button, where you can select from various languages to get the bot to translate from English to that language or reply to you in the language you selected. 
+
+To use this new feature, follow these steps: 
+  1. Choose the language you want the bot to translate to you from the new drop down menu
+  2. Type `translate this: ` followed by what sentence you want translated `ex. translate this: Sushi is my favourite food`
+  3. Hit `enter` or the `send` icon and see the output!
+Below is a sample output.
 
