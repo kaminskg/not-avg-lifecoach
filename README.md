@@ -270,3 +270,23 @@ Below is a sample output.
   <img height="500" src="./Documentation/individual_feature_imgs/translation_exmaple.png">
 </div>
 
+### 2. Wikipedia Search
+The API used can be found from the following website: https://www.npmjs.com/package/wikipedia <br>
+**Note:** This API does not work in Firefox. For this reason, Google Chrome is recommended. 
+
+The chatbot has a new feature integrated with the chat that allows the user to ask the chatbot to search a Wikipedia page. The chatbot will then output the summary of your selected topic. 
+
+To use this new feature, follow these steps: 
+  1. Type `wiki ` followed by the topic you are interested in `ex. wiki Sushi`
+  2. Hit `enter` or the `send` icon and see the output! <br>
+**Note:** If you select another language, the bot will respond in that language. 
+
+Below is a sample output with an English summary.
+<div align="center">
+  <img height="500" src="./Documentation/individual_feature_imgs/translation_exmaple.png">
+</div>
+
+And here is a sample output with a Japanese summary.
+<div align="center">
+  <img height="500" src="./Documentation/individual_feature_imgs/translation_exmaple.png">
+</div>
