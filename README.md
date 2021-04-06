@@ -267,7 +267,7 @@ To use this new feature, follow these steps:
 
 Below is a sample output.
 <div align="center">
-  <img height="500" src="./Documentation/individual_feature_imgs/translation_exmaple.png">
+  <img height="500" src="./Documentation/individual_feature_imgs/translate_example_goodver.png">
 </div>
 
 ### 2. Wikipedia Search
