@@ -1,6 +1,6 @@
 <template>
   <div>
-    <b-navbar toggleable="lg" type="dark" variant="info">
+    <b-navbar toggleable="lg" type="dark" variant="dark">
       <b-navbar-brand fluid href="#"
         >Not Your Average Life Coach</b-navbar-brand
       >
@@ -23,7 +23,7 @@
       toggleable="lg"
       type="dark"
       fixed="bottom"
-      variant="info"
+      variant="dark"
       class="center"
     >
       <b-navbar-nav class="mx-auto">
@@ -118,4 +118,5 @@ export default {
 };
 </script>
 
-<style></style>
+<style>
+</style>

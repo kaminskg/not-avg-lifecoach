@@ -325,6 +325,7 @@ a {
 .botPic {
   width: 3em;
   height: 3em;
+  padding-left: 1.2px;
 }
 
 .bot-flexbox {
@@ -354,6 +355,7 @@ a {
 .userPic {
   width: 3em;
   height: 3em;
+  padding-right: 1.2px;
 }
 
 header .filler {
@@ -367,7 +369,7 @@ header .filler {
   padding: 0px;
   background-color: $light;
   border: #0389c5 solid 4px;
-  width: 500px;
+  width: 520px;
   height: 80vh;
   display: flex;
   flex-direction: column;

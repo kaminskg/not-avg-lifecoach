@@ -26,7 +26,7 @@
                 </th>
               </tr>
               <tr
-                style="color: rgb(116, 0, 170);"
+                style="color: rgb(0,0,0);"
                 v-for="entity in message.namedEntities"
                 :key="entity.index"
               >
@@ -141,7 +141,7 @@ export default {
 
 <style>
 h5 {
-  color: rgb(116, 0, 170);
+  color: #0389c5 ;
   font-weight: 600;
 }
 tr:nth-child(even) {

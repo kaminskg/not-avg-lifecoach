@@ -10,7 +10,7 @@
       </b-card>
       <b-card v-if="index % 2 === 1" no-body class="mb-1">
         <b-card-header header-tag="header" class="p-1" role="tab">
-          <b-button block v-b-toggle="'accordion-' + index" variant="info">
+          <b-button block v-b-toggle="'accordion-' + index" variant="dark">
             Bot replied: {{ repliesAndSentimentAnalyses[index].text }}
           </b-button>
         </b-card-header>
