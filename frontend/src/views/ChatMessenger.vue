@@ -211,11 +211,11 @@ export default {
 
 .button-link {
   height: fit-content;
-  background-color: $accent;
+  background-color: #333333;
   border-radius: 8px;
   border-width: 1px;
-  border-color: $accent;
-  text-shadow: 1px 1px 1px $accentDark;
+  border-color: #0389c5;
+  text-shadow: 1px 1px 1px #444444;
   color: $light;
   padding: 3px 10px;
   transition-duration: 0.4s;
@@ -226,7 +226,7 @@ export default {
 }
 
 .button-link:hover {
-  background-color: $accentDark;
+  background-color: #0389c5;
   color: #ffffff;
 }
 ul {
@@ -248,7 +248,7 @@ a {
 
 #chat-header {
   margin: 0em 0em auto 0em;
-  background-color: $primary;
+  background-color: #1b1b1b;
   justify-content: center;
   align-items: center;
   height: fit-content;
@@ -262,11 +262,10 @@ a {
 }
 
 .send-message {
-  background-color: $light;
+  background-color: #1b1b1b;
   z-index: 1;
   border: none;
   width: 3em;
-  border-radius: 40px;
 }
 .user-input {
   background-color: $light;
@@ -275,6 +274,7 @@ a {
   display: flex;
 }
 .text-input {
+  color: white;
   padding: 1em;
   border-right: none;
   border-bottom: none;
@@ -282,6 +282,7 @@ a {
   border-top: none;
   width: -webkit-fill-available;
   width: -moz-available;
+  background-color: #1b1b1b
 }
 
 .filler {
@@ -291,6 +292,7 @@ a {
 }
 
 .chat-messages {
+  background: #1b1b1b;
   display: flex;
   flex-direction: column;
   overflow: hidden;
@@ -301,6 +303,7 @@ a {
 }
 
 .chat-message {
+  color: white;
   display: flex;
   width: 50%;
   padding: 0.2em;
@@ -308,7 +311,7 @@ a {
   margin-bottom: 0.5em;
 }
 .botMessage {
-  background-color: $tertiary;
+  background-color: #333333;
   margin-right: auto;
   margin-left: 5px;
   border-radius: 5px;
@@ -337,7 +340,7 @@ a {
 }
 
 .userMessage {
-  background-color: $secondary;
+  background-color: #0389c5;
   margin-left: auto;
   margin-right: 5px;
   border-radius: 5px;
@@ -363,7 +366,7 @@ header .filler {
 #chat-bot {
   padding: 0px;
   background-color: $light;
-  border: $accent solid 4px;
+  border: #0389c5 solid 4px;
   width: 500px;
   height: 80vh;
   display: flex;
