@@ -257,7 +257,7 @@ The sentiment analysis is the first page that pops up when you click the analyze
 
 ### Additional Links
 1. [Individual Documentation](https://github.com/kaminskg/not-avg-lifecoach/tree/main/Documentation/individual-docs/65234775_Documintation_Chatbot.pdf)
-2. YouTube Video
+2. [YouTube Video Presentation](https://www.youtube.com/watch?v=XFiSN86duqM&ab_channel=GuyKaminsky)
 
 
 The following chatbot has two new features implemented. These features are the Google translate API and the Wikipedia API.
