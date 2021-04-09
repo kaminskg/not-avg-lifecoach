@@ -107,7 +107,7 @@ export default {
       this.conversation.push({
         chatStyle: "bot",
         text:
-          'Hello, I am your Motivational Lifecoach, ask me anything! I can speak in different langauges!! If you want me to wiki something just type the word "wiki <topic>"',
+          'Hello, I am your Motivational Lifecoach, and you can ask me anything! I can now speak in different languages and do some Wikipedia searches for you!!',
       });
     },
     nlpHandshake() {
