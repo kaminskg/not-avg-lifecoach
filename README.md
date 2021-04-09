@@ -252,10 +252,10 @@ The sentiment analysis is the first page that pops up when you click the analyze
 - Created Videos
 
 ## Individual Component
-**Note 1:** Before you begin, please refer to [this section](#getting-started) to properly configure the chatbot to your local machine.
+**Note 1:** Before you begin, please refer to [this section](#getting-started) to properly configure the chatbot to your local machine.<br>
 **Note 2:** Please use Google Chrome Web Browser
 
-### Links
+### Additional Links
 1. [Individual Documentation](https://github.com/kaminskg/not-avg-lifecoach/tree/main/Documentation/individual-docs/65234775_Documintation_Chatbot.pdf)
 2. YouTube Video
 
