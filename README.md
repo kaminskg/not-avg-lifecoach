@@ -256,7 +256,7 @@ The sentiment analysis is the first page that pops up when you click the analyze
 **Note 2:** Please use Google Chrome Web Browser
 
 ### Additional Links
-1. [Individual Documentation](https://github.com/kaminskg/not-avg-lifecoach/tree/main/Documentation/individual-docs/65234775_Documintation_Chatbot.pdf)
+1. [Individual Documentation](https://github.com/kaminskg/not-avg-lifecoach/blob/main/Documentation/individual-docs/65234775_GuyKaminsky_Documintation_Chatbot.pdf)
 2. [YouTube Video Presentation](https://youtu.be/Y1sRFfFR1MM)
 
 
