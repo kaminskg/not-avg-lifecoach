@@ -87,7 +87,7 @@ export default {
         { value: "ja", text: "Japanese" },
         { value: "ko", text: "Korean" },
         { value: "pt", text: "Portuguese" },
-        { value: "ru", text: "Russain" },
+        { value: "ru", text: "Russian" },
         { value: "es", text: "Spanish" },
       ],
     };
