@@ -148,7 +148,7 @@ export default {
               });
             });
         } else if (this.userMessage.substring(0, 16) == "translate this: ") {
-          this.userMessage = this.userMessage.substring(15)
+          this.userMessage = this.userMessage.substring(16)
           translate(this.userMessage, this.selected).then((data) => {
                   this.conversation.push({
                     chatStyle: "bot",
